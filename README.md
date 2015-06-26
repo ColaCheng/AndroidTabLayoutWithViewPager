@@ -12,7 +12,7 @@ dependencies {
   compile 'com.android.support:design:22.2.0'
 }
  ```
-  
+
 ### Sliding Tabs Layout
 
 Add `android.support.design.widget.TabLayout` that will handle the different tab options, and `android.support.v4.view.ViewPager` component will handle the page between the various fragments we will create.
@@ -40,7 +40,7 @@ Add `android.support.design.widget.TabLayout` that will handle the different tab
 
 ### Create Fragment
 
-We define the XML layout(`res/layout/fragment_content.xml`) for the fragment which will be displayed on screen when a particular tab is selected:
+We define the XML layout(`res/layout/fragment_content.xml`) for the fragment which will be displayed on screen when a particular tab is selected.
 ```xml
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
@@ -60,7 +60,7 @@ We define the XML layout(`res/layout/fragment_content.xml`) for the fragment whi
 ```
 
 
-Then `ContentFragment.java` define the logic for the fragment of tab content:
+Then `ContentFragment.java` define the logic for the fragment of tab content.
 
 ```java
 public class ContentFragment extends Fragment {
@@ -100,7 +100,7 @@ public class ContentFragment extends Fragment {
         titleTxtView.setText(mParam1);
         return myView;
     }
-    
+
 }
 ```
 
@@ -109,7 +109,7 @@ public class ContentFragment extends Fragment {
 Following, we implement the adapter for your `ViewPager` which controls the order of the tabs, the titles and their associated content. The most important methods to implement here are `getPageTitle(int position)` which is used to get the title for each tab and `getItem(int position)` which determines the fragment for each tab.
 
 ```java
-static class PagerAdapter extends FragmentPagerAdapter {
+public class PagerAdapter extends FragmentPagerAdapter {
     private final List<Fragment> myFragments = new ArrayList<>();
     private final List<String> myFragmentTitles = new ArrayList<>();
     private Context context;
@@ -181,7 +181,7 @@ public class MainActivity extends AppCompatActivity {
 ```
 Heres the output:
 
-![Screen 1](http://i.imgur.com/8hP2PgL.png?2)
+![Show 1](http://i.imgur.com/8hP2PgL.png?2)
 
 ### Customize Tab Indicator Color
 
@@ -213,7 +213,7 @@ private int[] imageResId = {
       R.drawable.instagram,
       R.drawable.linkedin
 };
-      
+
 //...
 
 @Override
@@ -225,7 +225,7 @@ public CharSequence getPageTitle(int position) {
       sb.setSpan(imageSpan, 0, 1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
       return sb;
 }
-      
+
 ```
 
 By default, the tab created by TabLayout sets the `textAllCaps` property to be true, which prevents ImageSpans from being rendered.  You can override this behavior by changing the `tabTextAppearance` property.
@@ -243,7 +243,7 @@ By default, the tab created by TabLayout sets the `textAllCaps` property to be t
 
 Tabs with images:
 
-![Slide 2](http://i.imgur.com/EYxKrpE.png?1)
+![Show 2](http://i.imgur.com/EYxKrpE.png?1)
 
 
 ### Add Custom View to TabLayout
@@ -309,7 +309,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
     //...
-}    
+}
 ```
 
 Next, we add the `getTabView(position)` method to the `PagerAdapter` class.
@@ -325,7 +325,7 @@ static class PagerAdapter extends FragmentPagerAdapter {
             R.drawable.instagram,
             R.drawable.linkedin
     };
-        
+
     public View getTabView(int position) {
         // Given you have a custom layout in `res/layout/custom_tab_item.xml` with a TextView and ImageView
         View v = LayoutInflater.from(context).inflate(R.layout.custom_tab_item, null);
@@ -339,7 +339,7 @@ static class PagerAdapter extends FragmentPagerAdapter {
   //...
 ```
 Finally, we can setup any custom tab content for each page in the adapter.
-![Slide 3](http://i.imgur.com/IERLy6R.png?1)
+![Show 3](http://i.imgur.com/IERLy6R.png?1)
 
 
 ### Set PageChangeListener
@@ -373,8 +373,3 @@ viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
 
 * <https://github.com/codepath/android_guides/wiki/Google-Play-Style-Tabs-using-TabLayout#design-support-library>
 * <https://github.com/codepath/android_guides/wiki/ViewPager-with-FragmentPagerAdapter>
-
-
-
-
-
